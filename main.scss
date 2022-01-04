@@ -1,0 +1,462 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+@font-face {
+  font-family: "LogoFont";
+  src: url("./fonts/Sportypo-Reguler-Demo.ttf");
+}
+* {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", cursive;
+}
+:root {
+  --primary-color: rgb(54, 67, 255);
+  --primary-color-v1: rgba(54, 67, 255, 0.616);
+  --primary-color-v2: rgba(54, 67, 255, 0.45);
+  --primary-color-v3: rgba(54, 67, 255, 0.3);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+// Mixins
+
+@mixin display-flex($a: center, $j: center) {
+  display: flex;
+  align-items: $a;
+  justify-content: $j;
+}
+
+.terbo_header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  @include display-flex($j: space-between);
+  padding: 15px 20px;
+  border-bottom: 0.2px solid var(--primary-color-v1);
+  z-index: 10;
+}
+.terbo_leftWrap {
+  @include display-flex;
+}
+.terbo_gps {
+  font-size: 0.9rem;
+  text-decoration: underline;
+  margin-left: 10px;
+  opacity: 0.6;
+}
+.terbo_logo {
+  @include display-flex;
+  h2 {
+    font-family: "LogoFont", cursive;
+    color: var(--primary-color);
+    font-size: 1.7rem;
+  }
+  &Texture {
+    width: 50px;
+    height: 30px;
+    @include display-flex($a: flex-end);
+    flex-direction: column;
+    gap: 0.3rem;
+    position: relative;
+    top: -2px;
+    span {
+      display: block;
+
+      background-image: linear-gradient(
+        to right,
+        var(--primary-color-v3),
+        var(--primary-color-v2),
+        var(--primary-color-v1),
+        var(--primary-color)
+      );
+      height: 4px;
+      &:nth-child(1) {
+        width: 100%;
+      }
+      &:nth-child(2) {
+        width: 60%;
+      }
+      &:nth-child(3) {
+        width: 30%;
+      }
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+    }
+  }
+}
+.terbo_nav {
+  @include display-flex($a: center);
+}
+.nav_links {
+  @include display-flex($a: center);
+  margin-right: 15px;
+}
+.link {
+  display: block;
+  margin: 0 7px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  position: relative;
+  padding: 5px 4px;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.3s linear;
+
+    -webkit-transition: width 0.3s linear;
+    -moz-transition: width 0.3s linear;
+    -ms-transition: width 0.3s linear;
+    -o-transition: width 0.3s linear;
+  }
+  &:hover {
+    color: var(--primary-color);
+    &::before {
+      width: 100%;
+    }
+  }
+  transition: color 0.4s linear;
+  -webkit-transition: color 0.4s linear;
+  -moz-transition: color 0.4s linear;
+  -ms-transition: color 0.4s linear;
+  -o-transition: color 0.4s linear;
+}
+.terbo_navbutton {
+  padding: 10px;
+  height: 40px;
+
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-size: 0.9rem;
+  @include display-flex;
+  gap: 0.5rem;
+  color: var(--primary-color);
+}
+.fav-car {
+  margin-right: 5px;
+  color: var(--primary-color);
+}
+.terbo_banner {
+  width: 100%;
+  .content_wraper {
+    @include display-flex($a: flex-start);
+    color: #fff;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 40px;
+    width: 100%;
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    &.extra-style {
+      background-position: right center;
+      background-size: auto;
+      align-items: flex-end;
+      height: 600px;
+      h3 {
+        font-size: 1.5rem;
+      }
+      a {
+        position: relative;
+        left: 400px;
+      }
+    }
+  }
+
+  hr {
+    margin-top: 5px;
+    border: 3px solid var(--primary-color);
+    background-color: var(--primary-color);
+  }
+}
+.bannerTitle {
+  width: 500px;
+  font-weight: 800;
+  line-height: 47px;
+  color: #fff;
+  font-size: 2.5rem;
+}
+.bannerSubTitle {
+  width: 400px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.bannerButton {
+  @include display-flex;
+  height: 70px;
+  padding: 10px;
+  position: relative;
+  left: -45px;
+  .race_track {
+    display: inline-block;
+    width: 50px;
+    height: 100%;
+    background-color: #fff;
+    position: relative;
+    left: 20px;
+    clip-path: polygon(
+      21px 26px,
+      4px 3px,
+      31px 3px,
+      49px 25px,
+      33px 48px,
+      4px 49px
+    );
+    &:nth-child(3) {
+      left: 9px;
+      background-color: var(--primary-color-v1);
+    }
+    &:nth-child(2) {
+      left: 20px;
+      background-color: var(--primary-color-v2);
+    }
+    &:nth-child(1) {
+      left: 31px;
+      background-color: var(--primary-color-v3);
+    }
+  }
+  .bannerButtonContent {
+    @include display-flex;
+    border: 2px solid var(--primary-color);
+    width: 155px;
+    background-color: #fff;
+    height: 100%;
+    color: var(--primary-color);
+    -webkit-clip-path: polygon(
+      19px 26px,
+      0px 0px,
+      130px 0px,
+      151px 25px,
+      130px 50px,
+      0px 50px
+    );
+    clip-path: polygon(
+      19px 26px,
+      0px 0px,
+      130px 0px,
+      151px 25px,
+      130px 50px,
+      0px 50px
+    );
+  }
+}
+.messageBox {
+  @include display-flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+  a {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+  }
+  h2 {
+    text-align: center;
+    width: 50%;
+    font-size: 2rem;
+  }
+  &.extra-padd {
+    padding: 70px 20px;
+  }
+}
+.shoping_cards {
+  background-color: rgb(230, 230, 230);
+  @include display-flex;
+  flex-direction: column;
+}
+
+.shoping_cardsWraper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 50px 50px;
+  align-items: flex-start;
+  justify-content: center;
+  justify-items: center;
+}
+
+.shoping_card {
+  background-color: #fff;
+  width: 330px;
+  padding: 40px 20px;
+  @include display-flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  .card_img {
+    width: 120px;
+  }
+  .card_text {
+    @include display-flex;
+    flex-direction: column;
+    text-align: center;
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+    p {
+      font-size: 1rem;
+      width: 90%;
+      text-align: center;
+      justify-self: center;
+    }
+  }
+  .card_content_list {
+    margin: 10px 0px 14px 0px;
+    text-align: left;
+    &-item {
+      margin: 30px 0;
+      gap: 0.4rem;
+      .item-icon {
+        @include display-flex;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 2px;
+      }
+      .item-text {
+        font-size: 0.9rem;
+      }
+      @include display-flex($j: flex-start);
+    }
+  }
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.button-v1 {
+  @include display-flex;
+  font-weight: 600;
+  color: #fff !important;
+  background-color: var(--primary-color);
+  //width: 200px;
+  padding: 15px 30px;
+  padding-top: 15px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-size: 0.8rem;
+}
+.button-v2 {
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  align-self: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.btnDiv {
+  margin-bottom: 30px;
+}
+
+.collectionList {
+  padding: 20px 50px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  gap: 2rem;
+}
+
+.collection {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  &Img {
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    z-index: 1;
+  }
+  h2 {
+    position: absolute;
+    padding: 5px 10px;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    font-size: 1.4rem;
+  }
+}
+.footer {
+  padding: 70px 20px;
+  padding-bottom: 40px;
+}
+.f_top {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 5rem;
+}
+.logo-info {
+  text-align: center;
+  h2 {
+    font-size: 2rem;
+  }
+}
+.copyright {
+  position: relative;
+  left: 20px;
+  color: #757575;
+  font-size: 0.9rem;
+  padding: 10px 0;
+}
+.other_pages {
+  display: flex;
+  gap: 2rem;
+}
+.page_section {
+  h3 {
+    font-weight: 900;
+    margin: 10px 0;
+  }
+  ul {
+    li {
+      a {
+        font-size: 1rem;
+        margin: 5px 0;
+        color: #555555;
+      }
+    }
+  }
+}
